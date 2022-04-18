@@ -20,3 +20,6 @@ def train(ann,Input,Target,weights_file="weights",maxIterations = 100000,minErro
     print("Done Training")
     save_weights(ann,weights_file)
     return loss
+def train_batch(ann,Input,Target):
+    error = ann.backwardProp(Input, Target)
+    return error
