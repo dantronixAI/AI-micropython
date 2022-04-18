@@ -60,7 +60,7 @@ loss = train_batch(ann,Input,Target,
                     minError =0.1,
                     minErrorDelta=0.01)
 
-# individual optimization steps are also possible: ann.backwardProp(ann, Input, Target)
+# individual optimization steps are also possible: ann.backwardProp(Input, Target)
 # weights save automatically after training. Optional: save_weights(ann, weights_file)
 
 # ---------------------------------------------------------
