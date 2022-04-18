@@ -4,7 +4,7 @@ ANN implementation for micropython
 Requirements:
  - ulab (https://github.com/v923z/micropython-ulab)
 
-Optimization algorithms and parameters (with the same name) are implemented as in: 
+Optimization algorithms and parameters (mantaining the same parameters' name and default) are implemented as in: 
 https://pytorch.org/docs/stable/optim.html#algorithms
 
 - Available optimization algorithms:
