@@ -1,4 +1,4 @@
-from NN.src.storage import save_weights
+from .storage import save_weights
 verbose_train =100
 verbose_train_batch = 10
 minIterations = 10
