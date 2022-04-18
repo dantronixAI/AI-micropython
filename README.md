@@ -10,7 +10,7 @@ https://pytorch.org/docs/stable/optim.html#algorithms
 - Available optimization algorithms:
   - rmsprop, sgd, adam, adamw, radam, adagrad
 
-- Available activation Functions:
+- Available activation functions:
   - sigmoid, tanh, arctan, softplus, relu, lrelu, linear
 
 The training can be perfomed in both: the microcontroller and the pc. However, due to memory capacity and slow processing time, training is recommened in the pc. The weights are saved after training, so they can be directly used in the microcontoller.
