@@ -45,7 +45,6 @@ class FFN:
 
 
     def forwardProp(self, input):
-        delta = []
         numSamples = input.shape[0]
 
         self._layerInput = []
@@ -67,7 +66,21 @@ class FFN:
 
         return self._layerOutput[-1].T
 
+    def eval(self, input):
+        numSamples = input.shape[0]
+        for n_layer in range(self.numLayers):
+            if n_layer == 0:
+                numNeurons = input.T.shape[0]
+                M = np.ones((numNeurons+1,numSamples))
+                M[:-1,:] = input.T
+            else:
+                numNeurons = layerOutput.shape[0]
+                M = np.ones((numNeurons+1,layerOutput.shape[1]))
+                M[:-1,:] = layerOutput
+            layerInput = np.dot(self.weights[n_layer],M)
+            layerOutput = self.activation[n_layer](layerInput)
 
+        return  layerOutput.T
     def backwardProp(self, input, target, learningRate=0.2):
         delta = []
         numSamples = input.shape[0]
