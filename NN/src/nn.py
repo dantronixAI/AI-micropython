@@ -1,6 +1,6 @@
-from NN.src.numpy_package import numpy as np
-from NN.src.functions import sigmoid
-from NN.src.optimizations import rmsprop
+from .numpy_package import numpy as np
+from .functions import sigmoid
+from .optimizations import rmsprop
 import random
 class FFN:
     def __init__(self, params):
