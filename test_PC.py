@@ -54,11 +54,13 @@ params['optimization']=adam(lr=0.01)
 ann = FFN(params)
 weights_file = "modelGaussianMixture" # name of the file
 loss = train(ann,Input,Target,
-      weights_file=weights_file,
-      maxIterations = 100000,
-      minError =1e-4,
-      minErrorDelta=1e-6)
+            weights_file=weights_file,
+            maxIterations = 100000,
+            minError =1e-6,
+            minErrorDelta=1e-7)
 
+# individual optimization steps are also possible: ann.backwardProp(Input, Target)
+# weights save automatically after training. Optional: save_weights(ann, weights_file)
 
 # ---------------------------------------------------------
 # Evaluation
