@@ -6,7 +6,7 @@ from NN.src.train import *
 from NN.src.numpy_package import numpy as np
 import random
 # ---------------------------------------------------------
-# Available Optimization Clases
+# Available Optimization Classes
 # ---------------------------------------------------------
 # rmsprop, sgd, adam, adamw, radam, adagrad
 # ---------------------------------------------------------
