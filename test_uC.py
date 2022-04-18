@@ -34,8 +34,6 @@ Input[:,0] = x
 Target = gaussian_mixture(Input) # N_points x 1
 # ---------------------------------------------------------
 
-
-
 # ---------------------------------------------------------
 # Training Task
 # ---------------------------------------------------------
@@ -52,42 +50,18 @@ params['optimization']=adam(lr=0.01)
 
 ann = FFN(params)
 weights_file = "modelGaussianMixture"
-loss = [0]
+
+weights_file = "modelGaussianMixture" # name of the file
 batch_size = 20
-size_sample = len(Input)
-total_batch = size_sample//batch_size
-maxIterations = 1000
-minError =0.1
-minErrorDelta=0.01
+loss = train_batch(ann,Input,Target,
+                    batch_size = batch_size,
+                    weights_file=weights_file,
+                    maxIterations = 1000,
+                    minError =0.1,
+                    minErrorDelta=0.01)
 
-for i in range(maxIterations + 1):
-    ini_pos = 0
-    end_pos = batch_size
-    error_cumulative = 0
-    while end_pos<size_sample:
-        error_cumulative += train_batch(ann,Input[ini_pos:end_pos],Target[ini_pos:end_pos])
-        ini_pos = end_pos
-        end_pos = end_pos + batch_size
-        #  Include last batch
-        if ((ini_pos<size_sample-1) &(end_pos>=size_sample)):
-            end_pos = size_sample-1
-    error = error_cumulative
-
-    if i % 10 == 0:
-        print("Iteration {0}\tError: {1:0.8f}".format(i, error))
-    if error <= minError:
-        print("Minimum error reached at iteration {0}".format(i))
-        break
-    if abs(error - loss[-1]) <= minErrorDelta:
-        print("Minimum delta error reached at iteration {0}".format(i))
-        break
-    loss.append(error)
-loss = loss[1:]
-if i == maxIterations:
-    print("Maximum iterations reached : {}".format(maxIterations))
-print("Error: {0:0.8f}".format(error))
-print("Done Training")
-save_weights(ann, weights_file) # Save the weights for evaluation
+# individual optimization steps are also possible: ann.backwardProp(ann, Input, Target)
+# weights save automatically after training. Optional: save_weights(ann, weights_file)
 
 # ---------------------------------------------------------
 # Evaluation
