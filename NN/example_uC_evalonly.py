@@ -3,17 +3,6 @@ from src.functions import *
 from src.storage import *
 from src.numpy_package import numpy as np
 import random
-# ---------------------------------------------------------
-# Available Optimization Classes
-# ---------------------------------------------------------
-# rmsprop, sgd, adam, adamw, radam, adagrad
-# ---------------------------------------------------------
-# ---------------------------------------------------------
-# Available Activation Functions
-# ---------------------------------------------------------
-# sigmoid, tanh, arctan, softplus, relu, lrelu, linear
-# ---------------------------------------------------------
-
 
 # ---------------------------------------------------------
 # Generating Data For training
@@ -27,7 +16,6 @@ N_points = 500
 
 Input = np.zeros((N_points,1)) # N_points x 1
 Input[:,0] = np.linspace(-10,10,N_points)
-
 
 # ---------------------------------------------------------
 # Evaluation
