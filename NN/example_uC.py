@@ -52,7 +52,7 @@ ann = FFN(params)
 weights_file = "modelGaussianMixture"
 
 weights_file = "modelGaussianMixture" # name of the file
-batch_size = 20
+batch_size = 10
 loss = train_batch(ann,Input,Target,
                     batch_size = batch_size,
                     weights_file=weights_file,
