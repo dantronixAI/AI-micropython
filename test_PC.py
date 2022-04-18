@@ -93,4 +93,5 @@ plt.subplot(2,1,2)
 plt.plot(loss,label="loss")
 plt.xlabel("epoch")
 plt.legend()
+plt.show()
 # -------------------------------------------------
