@@ -39,11 +39,11 @@ import time
 for i in range(N_points):
     true_value = gaussian_mixture(Input[i])
     pred_value = ann_evaluate.eval(Input[i:i+1])[0]
-    pred_error = true_value - pred_value # evaluate first batch
+    pred_error = true_value - pred_value # compute the error
     print("{0:.4f} \t {1:.4f} \t {2:.4f}".format(pred_value[0],true_value[0],pred_error[0]))
 
 
-# Measuring evaluation of N_points
+# Measuring computation time of N evaluations
 ini_time = time.time_ns()
 for i in range(N_points):
     ann_evaluate.eval(Input[i:i+1])[0]
